@@ -1,4 +1,6 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 
 class App extends React.Component {
@@ -14,7 +16,7 @@ class App extends React.Component {
     }
 
     update(e) {
-        this.setState({search: e.target.value})
+        this.setState({search: e.target.value.toLowerCase()})
     }
 
     search() {
@@ -23,7 +25,7 @@ class App extends React.Component {
 
         fetch(url)
             .then(response => {
-                return response.json() // the promise
+                return response.json(); // the promise
             })
             .then(data => {
                 this.setState({
@@ -35,19 +37,58 @@ class App extends React.Component {
     }
 
     render() {
-        return <div>
-            <input type="text"
-                   onChange={this.update.bind(this)}
-                   />
-            <p> {this.state.search }</p>
-            <button onClick={this.search.bind(this)}>Check</button>
-            <p>Result: {this.state.result}</p>
-            {
-                this.state.errorMessage
-                ? <p>Error: {this.state.errorMessage}</p>
-                : ''
-            }
-        </div>
+        return <Container style={{marginTop: '7em'}}>
+            <div className="ui grid">
+                <div className="sixteen wide column">
+                    <div className="ui text container">
+                        <h2 className="ui header">Scrabble Word Score</h2>
+                    </div>
+                </div>
+
+                <div className="four wide column">
+                    <div className="ui text container">
+                        <div className="ui loading icon input">
+                            <input type="text"
+                                   onChange={this.update.bind(this)}
+                                   tabIndex="0"
+                                   placeholder="enter word..."
+                                   autoComplete="off"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="four wide column">
+                    <div className="ui text container">
+                        <Button onClick={this.search.bind(this)}>Check Word Score</Button>
+                    </div>
+                </div>
+
+                <div className="eight wide column"></div>
+
+                <div className="eight wide column">
+                    {
+                        this.state.result && this.state.search
+                            ? ( <div className="results transition">
+                            <div className="message">
+                                <div className="header">{this.state.search} is worth {this.state.result } points in Scrabble</div>
+                            </div>
+                        </div>)
+                            : ''
+
+                    }
+
+                    {
+                        this.state.errorMessage && this.state.search
+                            ? (  <div className="results transition">
+                            <div className="message error">
+                                <div className="header">Error: {this.state.errorMessage}</div>
+                            </div>
+                        </div>)
+                            : ''
+                    }
+                </div>
+            </div>
+        </Container>
     }
 
 }
