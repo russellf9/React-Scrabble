@@ -1,5 +1,11 @@
 # React Scrabble
 
+## Project
+
+This project was built using the [Create React App](https://github.com/facebook/create-react-app) CLI tools
+
+
+
 
 ## Available Scripts
 
@@ -26,6 +32,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ## Features to add
 
-* [ ] Add typescipt
+* [X] Add typescipt
 * [ ] Use Redux
 * [ ] Use Observables with RxJS
+* [ ] Add tests
+* [ ] Add Husky
