@@ -33,7 +33,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 ## Features to add
 
 * [X] Add typescipt
-* [ ] Use Redux
+* [X] Use Redux
 * [ ] Use Observables with RxJS
 * [ ] Add tests
 * [ ] Add Husky
