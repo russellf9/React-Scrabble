@@ -3,25 +3,31 @@ import * as React from 'react';
 interface ResultProps {
     result: number;
     word: string;
+    errorMessage: string;
 }
 
 interface ResultState {
     result: number;
     word: string;
+    errorMessage: string;
 }
 
 const resultString = (props: ResultProps) => {
-    return `The word ${props.word} is worth ${props.result} in Scrabble.`; 
+    return `The word "${props.word}" is worth ${props.result} in Scrabble.`; 
 };
 
 const errorString = (props: ResultProps) => {
-    return '';
+    return `Error ${props.errorMessage}`;
 };
 
 const evaluateResultString = (props: ResultProps) => { 
-    return 0 < props.result 
-        ? resultString(props)
-        : errorString(props);
+    return 0 < props.errorMessage.length
+        ? errorString(props)
+        : resultString(props);
+};
+
+const displayResult = (props: ResultProps): boolean => {
+    return Boolean(props.errorMessage.length || props.word.length);
 };
 
 export default class Result extends React.Component<ResultProps, ResultState> {
@@ -31,7 +37,7 @@ export default class Result extends React.Component<ResultProps, ResultState> {
 
     public render() {
         return (
-             `${evaluateResultString(this.props)}`
+            displayResult(this.props) ? `${evaluateResultString(this.props)}` : ``
         );
     }
 }

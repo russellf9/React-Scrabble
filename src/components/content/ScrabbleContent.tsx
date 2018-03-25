@@ -4,11 +4,11 @@ interface ContentProps  {
     search: string;
 }
 
-interface ScrabbleState {
+interface ContentState {
     search: string;
 }
 
-export default class ScrabbleContent extends React.Component<ContentProps, ScrabbleState> {
+export default class ScrabbleContent extends React.Component<ContentProps, ContentState> {
     constructor(props: ContentProps) {
         super(props);
     }

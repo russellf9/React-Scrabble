@@ -1,98 +1,69 @@
 import * as React from 'react';
-import SearchForm from '../search/SearchForm';
+import { connect } from 'react-redux';
 import ScrabbleContent from '../content/ScrabbleContent';
+import SearchForm from '../search/SearchForm';
 import Result from '../result/Result';
 import Controls from '../controls/Controls';
+import { search } from '../../actions';
+import { DefaultProps, ChangeEvent, mapDispatchToProps, mapStateToProps } from '../../container';
 
-interface DefaultProps  {
-    search: string;
-    result: number;
-    lastWord: string;
-    errorMessage: string;
-    placeholder: string;
-}
+const UnconnectedScrabble = (props: DefaultProps): React.ReactElement<DefaultProps> => {
 
-interface ScrabbleState {
-    result: number;
-    lastWord: string;
-    search: string;
-    errorMessage: string;
-}
+    const handleChange = (event: ChangeEvent): void => {
+        props.onChange(event.target.value);
+   };
 
-interface ChangeEvent {
-    target: { value: string };
-    type: string;
-    bubbles: Boolean;
-    cancelable: Boolean;
-}
+    const submitUpdate = (value: string): void => {
+        props.searchComplete(value);
+    };
 
-export default class Scrabble extends React.Component<DefaultProps, ScrabbleState> {
-    constructor(props: DefaultProps) {
-        super(props);
-        this.state = { search: this.props.placeholder, result: 0, lastWord: '', errorMessage: '' } ;
-        this.handleChange = this.handleChange.bind(this);
-        this.requestSearch = this.requestSearch.bind(this);
-        this.clearSearch = this.clearSearch.bind(this);
-    }
+    const submitError = (message: string): void => {
+        props.onError(message);
+    };
 
-    public handleChange(event: ChangeEvent): void {
-       this.setState({ search: event.target.value });
-    }
-    
-    public requestSearch(searchItem: string): void {
-        this._search();
-    }
-  
-    public clearSearch(): void {
-        this.setState({ search: '', result: 0 });
-    }
+    const requestSearch = (searchItem: string): void => {
+        props.onSubmit(searchItem);
 
-    _search() {
-        const WORDNIK_API = 'http://api.wordnik.com/v4/word.json/';
-        const KEY = 'a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5';
-        let url = `${WORDNIK_API}${this.state.search}/scrabbleScore?api_key=${KEY}`;
-
-        fetch(url)
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
-                this.setState({
-                    result: data.value ? data.value : 0,
-                    lastWord: this.state.search,
-                    errorMessage: data.type ? data.message : ''
-                });
-            })
-            .catch(error => {
-                this.setState({ result: 0, errorMessage: error });
+        search(props.search)
+            .then(result => {
+                result.type === 'error'
+                    ? submitError(result.message)
+                    : submitUpdate(String(result.value));
             });
-    }
+    };
 
-    public render() {
-        return (
-            <div style={{ width: 500, marginLeft: 'auto', marginRight: 'auto', border: 'solid', borderWidth: 1}}>
-                <ScrabbleContent
-                    search={this.state.search}
-                />
-                <div>
-                <SearchForm
-                    search={this.state.search}
-                    handleChange={this.handleChange}
-                    requestSearch={this.requestSearch}
-                />
-                </div>
-                <div style={{ margin: 20, padding: 20}}>
-                <Result
-                    word={this.state.lastWord}
-                    result={this.state.result}
-                />
-                </div>
-                <div style={{ margin: 20, padding: 20}}>
-                    <Controls
-                        clearSearch={this.clearSearch}
-                    />
-                </div>
+    const clearSearch = (): void => {
+        props.onClear();
+    };
+
+    return (
+        <div>
+            <ScrabbleContent 
+                search={props.search} 
+            />
+            <SearchForm
+                    search={props.search}
+                    onChange={handleChange}
+                    requestSearch={requestSearch}
+                    isLoading={props.isLoading}
+            />
+            <div style={{ margin: 20, padding: 20}}>
+            <Result
+                word={props.lastWord}
+                result={props.result}
+                errorMessage={props.errorMessage}
+            />
             </div>
-        );
-    }
-}
+             <div style={{ margin: 20, padding: 20}}>
+                    <Controls
+                        clearSearch={clearSearch}
+                    />
+            </div>
+        </div>
+    );
+};
+
+export const Scrabble = connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(UnconnectedScrabble);

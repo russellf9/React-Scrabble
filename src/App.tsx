@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import Scrabble from './components/scrabble/Scrabble';
+import { Scrabble } from './components/scrabble/Scrabble';
 
 interface WordProps {
   search: string;
@@ -17,7 +17,7 @@ export default class App extends React.Component<{}, {}> {
   public render() {
     return (
       <div className="App">
-        <Scrabble placeholder="" result={0} search="" lastWord="" errorMessage="" />
+        <Scrabble  />
       </div>
     );
   }
