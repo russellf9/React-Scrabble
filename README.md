@@ -34,6 +34,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 * [X] Add typescipt
 * [X] Use Redux
-* [ ] Use Observables with RxJS
+* [X] Fix `redux-devtools`
 * [ ] Add tests
+* [ ] Use Observables with RxJS
 * [ ] Add Husky

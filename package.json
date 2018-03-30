@@ -1,5 +1,5 @@
 {
-  "name": "my-app-ts",
+  "name": "f9-react-scrabble",
   "version": "0.1.1",
   "private": true,
   "dependencies": {
@@ -12,7 +12,7 @@
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
@@ -21,8 +21,20 @@
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.4",
     "@types/react-redux": "^5.0.15",
+    "jest": "^22.4.3",
+    "jest-cli": "^22.4.3",
     "react-redux": "^5.0.7",
     "redux-devtools": "^3.4.1",
+    "redux-devtools-extension": "^2.13.2",
+    "ts-jest": "^22.4.2",
     "typescript": "^2.7.2"
-  }
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
+  "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
 }
