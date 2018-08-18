@@ -38,3 +38,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 * [ ] Use Observables with RxJS
 * [ ] Add tests
 * [ ] Add Husky
+
+
+## Links
+
+* [React and Redux with TypeScript](https://levelup.gitconnected.com/react-and-redux-with-typescript-da0c37537a79)

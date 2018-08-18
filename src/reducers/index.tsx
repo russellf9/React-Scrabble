@@ -1,83 +1,67 @@
-import * as types from '../constants/actionTypes';
+import { TypeKeys } from '../actions/actionTypes';
+import { DispatchActions } from '../interfaces';
 
 const { freeze } = Object;
 
-export interface ChangeAction {
-  type: 'change';
-  name: string;
-  value: string;
-}
-
-export type Action
-  = ChangeAction;
-
 interface ScrabbleState {
-  result: number;
-  lastWord: string;
-  search: string;
   errorMessage: string;
+  lastWord: string;
+  result: number;
+  search: string;
+  complete: string;
 }
 
 const initialState = freeze({
-  search: 'word',
-  result: 0,
-  lastWord: '',
+  complete: '',
   errorMessage: '',
-  placeholder: ''
+  isLoading: true,
+  lastWord: '',
+  placeholder: '',
+  result: 0,
+  search: 'word',
 });
 
-export default function (state: ScrabbleState = initialState, action: Action) {
+export default function (state: ScrabbleState = initialState, action: DispatchActions) {
 
   let nextState;
 
   switch (action.type) {
 
-    case types.CHANGE:
+    case TypeKeys.ON_READY:
+    nextState = {
+      ...state,
+      isLoading: false
+    };
+    break;
 
-      nextState = {
-        ...state,
-        search: action.value,
-      };
-      break;
+    case TypeKeys.RESET_FORM:
+    nextState = {
+      ...state,
+      search: ''
+    };
+    break;
 
-    case types.SEARCH:
+    case TypeKeys.ON_CHANGE :
+    nextState = {
+      ...state,
+      search: action.payload
+    };
+    break;
 
-      nextState = {
-        ...state,
-        isLoading: true,
-        search: action.value,
-      };
-      break;
+    case TypeKeys.ON_SUBMIT:
+    nextState = {
+      ...state,
+    };
+    break;
 
-    case types.SEARCH_COMPLETE:
-      nextState = {
-        ...state,
-        result: Number(action.value),
-        isLoading: false,
-        lastWord: state.search,
-        search: '',
-        errorMessage: '',
-      };
-      break;
-
-      case types.ON_ERROR:
-      nextState = {
-        ...state,
-        result: 0,
-        isLoading: false,
-        search: '',
-        errorMessage: action.value
-      };
-      break;
-
-    case types.RESET:
-      nextState = {
-        ...state,
-        search: '',
-        lastWord: '',
-        errorMessage: '',
-      };
-      break;
+    case TypeKeys.SUBMIT_COMPLETE:
+    nextState = {
+      ...state,
+      errorMessage: action.payload.errorMessage,
+      lastWord: action.payload.word,
+      result: action.payload.result,
+    };
+    break;
 
     default:
       nextState = state;

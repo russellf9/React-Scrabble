@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { SearchFormProps, FormState } from '../../container';
+import { SearchFormProps, FormState } from '../../interfaces';
 
 export default class SearchForm extends React.Component<SearchFormProps, FormState> {
     constructor(props: SearchFormProps) {

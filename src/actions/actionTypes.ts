@@ -1,0 +1,9 @@
+export enum TypeKeys {
+    ON_INIT = 'ON_INIT',
+    ON_READY = 'ON_READY',
+    ON_CHANGE = 'ON_CHANGE',
+    ON_SUBMIT = 'ON_SUBMIT',
+    SUBMIT_WORD = 'SUBMIT_WORD',
+    SUBMIT_COMPLETE = 'SUBMIT_COMPLETE',
+    RESET_FORM = 'RESET_FORM',
+}
