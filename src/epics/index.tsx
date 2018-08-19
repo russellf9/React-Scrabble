@@ -37,12 +37,15 @@ export const makeWordRequest = (searchItem: string): Observable<Response> => {
 };
 
 const getNumberRandomNumder = () => Math.floor(Math.random() * 6) + 1;
+const getErrorNumber = () => { return 0; };
+const getErrorMessage = () => { return 'is not a valid scrabble word!'; };
 
 const randomResult = (word: string): WordResult =>  {
+    let isError = false;
     var obj = {
-        result: getNumberRandomNumder(),
+        result: isError ? getErrorNumber() : getNumberRandomNumder(),
         word: word,
-        errorMessage: ''
+        errorMessage: isError ? getErrorMessage() : ''
     }; 
     return obj;
 };

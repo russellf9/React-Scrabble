@@ -1,18 +1,11 @@
 import { TypeKeys } from '../actions/actionTypes';
 import { DispatchActions } from '../interfaces';
+import { AppProps } from '../App';
 
 const { freeze } = Object;
 
-interface ScrabbleState {
-  errorMessage: string;
-  lastWord: string;
-  result: number;
-  search: string;
-  complete: string;
-}
-
 const initialState = freeze({
-  complete: '',
+  complete: false,
   errorMessage: '',
   isLoading: true,
   lastWord: '',
@@ -21,7 +14,7 @@ const initialState = freeze({
   search: 'word',
 });
 
-export default function (state: ScrabbleState = initialState, action: DispatchActions) {
+export default function (state: AppProps = initialState, action: DispatchActions) {
 
   let nextState;
 
@@ -37,6 +30,7 @@ export default function (state: ScrabbleState = initialState, action: DispatchAc
     case TypeKeys.RESET_FORM:
     nextState = {
       ...state,
+      complete: false,
       search: ''
     };
     break;
@@ -44,6 +38,7 @@ export default function (state: ScrabbleState = initialState, action: DispatchAc
     case TypeKeys.ON_CHANGE :
     nextState = {
       ...state,
+      complete: false,
       search: action.payload
     };
     break;
@@ -51,13 +46,17 @@ export default function (state: ScrabbleState = initialState, action: DispatchAc
     case TypeKeys.ON_SUBMIT:
     nextState = {
       ...state,
+      complete: false,
+      isLoading: true
     };
     break;
 
     case TypeKeys.SUBMIT_COMPLETE:
     nextState = {
       ...state,
+      complete: true,
       errorMessage: action.payload.errorMessage,
+      isLoading: false,
       lastWord: action.payload.word,
       result: action.payload.result,
     };

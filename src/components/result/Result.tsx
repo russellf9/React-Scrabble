@@ -1,12 +1,14 @@
 import * as React from 'react';
 
 interface ResultProps {
+    complete: boolean;
     result: number;
     word: string;
     errorMessage: string;
 }
 
 interface ResultState {
+    complete: boolean;
     result: number;
     word: string;
     errorMessage: string;
@@ -17,17 +19,21 @@ const resultString = (props: ResultProps) => {
 };
 
 const errorString = (props: ResultProps) => {
-    return `Error ${props.errorMessage}`;
+    return `Error - word "${props.word}"  ${props.errorMessage}`;
+};
+
+const hasError = (props: ResultProps): boolean => {
+    return props.result < 1;
 };
 
 const evaluateResultString = (props: ResultProps) => { 
-    return 0 < props.errorMessage.length
+    return hasError(props)
         ? errorString(props)
         : resultString(props);
 };
 
 const displayResult = (props: ResultProps): boolean => {
-    return Boolean(props.errorMessage.length || props.word.length);
+    return Boolean(props.complete);
 };
 
 export default class Result extends React.Component<ResultProps, ResultState> {

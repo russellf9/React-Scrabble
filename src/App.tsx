@@ -2,15 +2,17 @@ import * as React from 'react';
 import './App.css';
 import { Scrabble } from './components/scrabble/Scrabble';
 
-interface WordProps {
-  search: string;
-  lastWord: string;
-  result: number;
+export interface AppProps {
+  complete: boolean;
   errorMessage: string;
+  lastWord: string;
+  placeholder: string;
+  result: number;
+  search: string;
 }
 
 export default class App extends React.Component<{}, {}> {
-  constructor(props: WordProps) {
+  constructor(props: AppProps) {
     super(props);
   }
 

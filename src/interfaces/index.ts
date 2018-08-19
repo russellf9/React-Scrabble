@@ -1,10 +1,14 @@
 import { TypeKeys } from '../actions/actionTypes';
 
 export interface RootState {
-    search: '';
+    complete: false;
+    errorMessage: string;
     isLoading: true;
-    submit: () => Submit;
+    lastWord: '';
     onChange: () => OnChange;
+    result: 0;
+    search: '';
+    submit: () => Submit;
 }
 
 export interface ReadyState {
@@ -22,10 +26,14 @@ export interface OnChange {
 }
 
 export interface SubmitProps {
-    search: string;
+    complete: boolean;
+    errorMessage: string;
     isLoading: boolean;
-    submit: Function;
+    lastWord: string;
     onChange: Function;
+    result: number;
+    search: string;
+    submit: Function;
 }
 export interface Submit {
     type: TypeKeys.ON_SUBMIT;
@@ -85,6 +93,7 @@ export type DispatchActions = OnInitAction
     | ResetFormAction;
 
 export interface SearchFormProps {
+    complete: boolean;
     search: string;
     isLoading: boolean;
     onChange: Function;
@@ -93,6 +102,7 @@ export interface SearchFormProps {
 
 export interface FormState {
     search: string;
+    complete: boolean;
 }
 
 export interface ChangeEvent {

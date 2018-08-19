@@ -16,7 +16,7 @@ export default class SearchForm extends React.Component<SearchFormProps, FormSta
                     onChange={e => this.props.onChange(e)}
                 />
                 <button
-                    disabled={this.props.isLoading}
+                    disabled={this.props.isLoading || !this.props.search.length || this.props.complete}
                     style={{marginLeft: 20, marginRight: 10}}
                     value="Search"
                     onClick={e => this.props.requestSearch(this.props.search)}

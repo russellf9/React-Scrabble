@@ -27,6 +27,7 @@ const UnconnectedScrabble = (props: SubmitProps): React.ReactElement<SubmitProps
                 search={props.search}
             />
             <SearchForm
+                    complete={props.complete}
                     search={props.search}
                     onChange={handleChange}
                     requestSearch={requestSearch}
@@ -34,14 +35,16 @@ const UnconnectedScrabble = (props: SubmitProps): React.ReactElement<SubmitProps
             />
             <div style={{ margin: 20, padding: 20}}>
             <Result
-                word={'lastWord'}
-                result={99}
-                errorMessage={'errorMessage'}
+                complete={props.complete}
+                word={props.lastWord}
+                result={props.result}
+                errorMessage={props.errorMessage}
             />
             </div>
              <div style={{ margin: 20, padding: 20}}>
                     <Controls
                         clearSearch={clearSearch}
+                        isLoading={props.isLoading}
                     />
             </div>
         </div>
