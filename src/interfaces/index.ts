@@ -1,4 +1,5 @@
 import { TypeKeys } from '../actions/actionTypes';
+import { OnChange } from '../actionCreators';
 
 export interface RootState {
     complete: false;
@@ -16,21 +17,12 @@ export interface ReadyState {
     isLoading: true;
 }
 
-export interface Word {
-    word: string;
-}
-
-export interface OnChange {
-    type: TypeKeys.ON_CHANGE;
-    word: Word;
-}
-
 export interface SubmitProps {
     complete: boolean;
     errorMessage: string;
     isLoading: boolean;
     lastWord: string;
-    onChange: Function;
+    onChange: (x: string) => void;
     result: number;
     search: string;
     submit: Function;
@@ -72,8 +64,10 @@ export interface ResetFormAction {
 }
 
 export interface WordResult {
+    definition: String;
     errorMessage: string;
     result: number;
+    suggestions: Array<String> | null;
     word: string;
 }
 

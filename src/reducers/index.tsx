@@ -55,6 +55,7 @@ export default function (state: AppProps = initialState, action: DispatchActions
     nextState = {
       ...state,
       complete: true,
+      definition: action.payload.definition,
       errorMessage: action.payload.errorMessage,
       isLoading: false,
       lastWord: action.payload.word,
