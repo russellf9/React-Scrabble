@@ -38,8 +38,8 @@ const getTileScore = (letter: string): number => {
     return tile ? tile.score : 0;
 };
 
-export const getWordScore = (word: string, isValid: boolean): number => {
-    if (word.length <= 1 || !isValid) {
+export const getWordScore = (word: string): number => {
+    if (word.length <= 1) {
         return 0;
     }
     return word.split('')

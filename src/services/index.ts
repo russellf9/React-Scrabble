@@ -10,9 +10,9 @@ export enum HTTPMethod {
     POST = 'post',
 }
 
-const fetchRequest = (endPoint: string, data?: Object, method?: String): Observable<String> => {
+const fetchRequest = (endPoint: string, method?: string, data?: Object): Observable<string> => {
     const request = fetch(endPoint, {
-        method: 'POST'
+        method: method,
     })
         .then(response => response.text());
     return Observable.fromPromise(request);
@@ -21,12 +21,13 @@ const fetchRequest = (endPoint: string, data?: Object, method?: String): Observa
 export const makeAPIRequest = (
     endPoint: string,
     method?: HTTPMethod,
-    data?: Payload): Observable<String> => {
+    data?: Payload): Observable<string> => {
 
     switch (method) {
         case HTTPMethod.POST:
+            return fetchRequest(endPoint, method);
         case HTTPMethod.GET:
-            return fetchRequest(endPoint);
+            return fetchRequest(endPoint, method, data);
         default:
             return (fetchRequest(endPoint));
     }

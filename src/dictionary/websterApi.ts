@@ -6,9 +6,6 @@ import { getWordScore } from '../scrabble';
 const WEBSTER_API = 'https://www.dictionaryapi.com/api/v1/references/collegiate/xml/';
 const WEBSTER_KEY = '08c63e42-bce1-4f63-8666-51b71d0e8380';
 
-/* tslint:disable */
-// 
-
 const sanitizeString = (word: String): string => {
     return word.replace(/(?:<|<\/)dt>|(?:<|<\/)suggestion>|(?:<|<\/)sx>|:/gi, '');
 };
@@ -40,7 +37,7 @@ export const evaluateResponse = (response: Object, search: string): WordResult =
     return {
         definition: sanitizeString(firstDefinition).trim(),
         errorMessage: evaluateErrorMessage(),
-        result: getWordScore(search, isValid),
+        result: isValid ? getWordScore(search) : 0,
         suggestions: suggestions,
         word: search,
     };
