@@ -1,4 +1,6 @@
 import * as React from 'react';
+import styled from 'styled-components';
+import { colors, fonts, fontWeights } from '../../themes';
 
 interface ContentProps  {
     search: string;
@@ -8,6 +10,21 @@ interface ContentState {
     search: string;
 }
 
+const Title = styled.h2`
+    color: ${colors.darkBlue};
+    font-family: ${fonts.hind};
+    font-size: 1.75em;
+    font-weight: ${fontWeights.semiBold};
+    text-align: center;
+    text-transform: uppercase;
+`;
+
+const Wrapper = styled.section`
+    background: ${colors.background};
+    font-family: 'Hind', sans-serif;
+    padding: 4em;
+`;
+
 export default class ScrabbleContent extends React.Component<ContentProps, ContentState> {
     constructor(props: ContentProps) {
         super(props);
@@ -15,9 +32,9 @@ export default class ScrabbleContent extends React.Component<ContentProps, Conte
 
     public render() {
         return (
-            <div>
-                <h2>Scrabble</h2>
-            </div>
+            <Wrapper>
+                <Title>Scrabble</Title>
+            </Wrapper>
         );
     }
 }

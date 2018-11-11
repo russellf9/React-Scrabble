@@ -37,11 +37,14 @@ It correctly bundles React in production mode and optimizes the build for the be
 * [X] Fix `redux-devtools`
 * [X] Use Observables with RxJS
 * [X] Use Free API
+* [X] Add `styled-components`
+* [ ] Add Grid
 * [ ] Organise file structure
 * [ ] Add tests
 * [ ] Add Husky
 * [ ] Use XML Parsing if another library cannot be found
-* [ ] Hide keys
+* [ ] Hide keys?
+* [ ] Use a better back-end
 
 
 ## Links

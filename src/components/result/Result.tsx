@@ -1,4 +1,6 @@
 import * as React from 'react';
+import styled from 'styled-components';
+import { colors, fonts, fontWeights } from '../../themes';
 
 interface ResultProps {
     complete: boolean;
@@ -35,6 +37,22 @@ const evaluateResultString = (props: ResultProps) => {
 const displayResult = (props: ResultProps): boolean => {
     return Boolean(props.complete);
 };
+const getTitleColor = (props: ResultProps): string => {
+    return hasError(props) ? `${colors.red}` : `${colors.green}`;
+};
+
+const Title = styled.h2`
+    color: ${props => props.color};
+    font-family: ${fonts.hind};
+    font-size: 1.25em;
+    font-weight: ${fontWeights.semiBold};
+    text-align: center;
+`;
+
+const Wrapper = styled.section`
+    background:  ${colors.background};
+    padding: 1em;
+`;
 
 export default class Result extends React.Component<ResultProps, ResultState> {
     constructor(props: ResultProps) {
@@ -43,7 +61,11 @@ export default class Result extends React.Component<ResultProps, ResultState> {
 
     public render() {
         return (
-            displayResult(this.props) ? `${evaluateResultString(this.props)}` : ``
+            <Wrapper>
+                <Title color={getTitleColor(this.props)}>
+                 {displayResult(this.props) ? `${evaluateResultString(this.props)}` : ``}
+                </Title>
+            </Wrapper>
         );
     }
 }

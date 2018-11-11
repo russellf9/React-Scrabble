@@ -6,6 +6,8 @@ import Result from '../result/Result';
 import Controls from '../controls/Controls';
 import { ChangeEvent, SubmitProps } from '../../interfaces';
 import { mapDispatchToProps, mapStateToProps } from '../../container';
+import styled from 'styled-components';
+import { colors } from '../../themes';
 
 const UnconnectedScrabble = (props: SubmitProps): React.ReactElement<SubmitProps> => {
 
@@ -21,33 +23,35 @@ const UnconnectedScrabble = (props: SubmitProps): React.ReactElement<SubmitProps
         props.onChange('');
     };
 
+    const Wrapper = styled.section`
+        background: ${colors.background};
+        padding-bottom: 3em;
+        padding-top: 0.5em;
+    `;
+
     return (
-        <div>
-            <ScrabbleContent 
+        <Wrapper>
+            <ScrabbleContent
                 search={props.search}
             />
             <SearchForm
-                    complete={props.complete}
-                    search={props.search}
-                    onChange={handleChange}
-                    requestSearch={requestSearch}
-                    isLoading={props.isLoading}
+                complete={props.complete}
+                search={props.search}
+                onChange={handleChange}
+                requestSearch={requestSearch}
+                isLoading={props.isLoading}
             />
-            <div style={{ margin: 20, padding: 20}}>
             <Result
                 complete={props.complete}
                 word={props.lastWord}
                 result={props.result}
                 errorMessage={props.errorMessage}
             />
-            </div>
-             <div style={{ margin: 20, padding: 20}}>
-                    <Controls
-                        clearSearch={clearSearch}
-                        isLoading={props.isLoading}
-                    />
-            </div>
-        </div>
+            <Controls
+                clearSearch={clearSearch}
+                isLoading={props.isLoading}
+            />
+        </Wrapper>
     );
 };
 

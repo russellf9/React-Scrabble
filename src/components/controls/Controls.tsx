@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Button } from '../shared';
 
 interface ControlsProps  {
     clearSearch: Function;
@@ -17,14 +18,14 @@ export default class Controls extends React.Component<ControlsProps, ScrabbleSta
     public render() {
         return (
             <div>
-                <button
+                <Button
                     disabled={this.props.isLoading}
                     onClick={e => this.props.clearSearch()}
                     style={{marginLeft: 10}}
                     value="Clear"
                 >
                     Clear
-                </button>
+                </Button>
             </div>
         );
     }
