@@ -18,6 +18,17 @@ const fetchRequest = (endPoint: string, method?: string, data?: Object): Observa
     return Observable.fromPromise(request);
 };
 
+const testData = () => {
+    return [
+        { username: 'russell', city: 'london' },
+        { username: 'grace', city: 'berlin' }
+    ]; 
+};
+
+export const makeDummyApiCall = (endPoint?: string): Observable<string> => {
+    return Observable.of(testData()).map(o => JSON.stringify(o));
+};
+
 export const makeAPIRequest = (
     endPoint: string,
     method?: HTTPMethod,
@@ -29,7 +40,7 @@ export const makeAPIRequest = (
         case HTTPMethod.GET:
             return fetchRequest(endPoint, method, data);
         default:
-            return (fetchRequest(endPoint));
+            return (makeDummyApiCall(endPoint));
     }
 
 };

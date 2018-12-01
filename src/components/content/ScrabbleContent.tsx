@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { colors, fonts, fontWeights } from '../../themes';
 
-interface ContentProps  {
+export interface ContentProps  {
     search: string;
 }
 
@@ -10,7 +10,7 @@ interface ContentState {
     search: string;
 }
 
-const Title = styled.h2`
+export const Title = styled.h2`
     color: ${colors.darkBlue};
     font-family: ${fonts.hind};
     font-size: 1.75em;
@@ -25,7 +25,7 @@ const Wrapper = styled.section`
     padding: 4em;
 `;
 
-export default class ScrabbleContent extends React.Component<ContentProps, ContentState> {
+export class ScrabbleContent extends React.Component<ContentProps, ContentState> {
     constructor(props: ContentProps) {
         super(props);
     }

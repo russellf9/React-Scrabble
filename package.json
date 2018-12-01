@@ -3,17 +3,17 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@types/styled-components": "^4.0.3",
+    "@types/styled-components": "^4.1.2",
     "immutable": "^3.8.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "react-redux": "^5.0.7",
     "react-scripts-ts": "^4.0.8",
     "react-style": "^0.5.5",
     "redux": "^3.7.2",
     "redux-observable": "^0.18.0",
     "rxjs": "^5.5.8",
-    "styled-components": "^4.0.3",
+    "styled-components": "^4.1.2",
     "styled-components-ts": "0.0.14"
   },
   "scripts": {
@@ -23,14 +23,18 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@types/jest": "^22.2.0",
-    "@types/node": "^9.4.7",
-    "@types/react": "^16.0.40",
-    "@types/react-dom": "^16.0.4",
+    "@types/enzyme": "^3.1.15",
+    "@types/jest": "^22.2.3",
+    "@types/node": "^9.6.40",
+    "@types/react": "^16.7.11",
+    "@types/react-dom": "^16.0.11",
     "@types/react-redux": "^5.0.15",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
     "jest-cli": "^22.4.3",
-    "redux-devtools": "^3.4.1",
-    "redux-devtools-extension": "^2.13.2",
+    "react-test-renderer": "^16.6.3",
+    "redux-devtools": "^3.4.2",
+    "redux-devtools-extension": "^2.13.7",
     "ts-jest": "^22.4.2",
     "typescript": "^2.7.2"
   },
@@ -38,10 +42,26 @@
     "moduleFileExtensions": [
       "ts",
       "tsx",
-      "js"
-    ]
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "\\.s?css$": "<rootDir>/test-config/assets.js",
+      "\\.(jp?eg|png|gif|svg)$": "<rootDir>/test-config/assets.js"
+    },
+    "setupFiles": [
+      "<rootDir>/test-config/shim.js",
+      "<rootDir>/test-config/setup.js"
+    ],
+    "testMatch": ["**/__tests__/**.(ts|tsx|js)"],
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/test-preprocessor.js"
+    },
+    "verbose": true,
+    "testURL": "http://localhost"
   },
-  "testRegex": "/__tests__/.*\\.(ts|tsx|js)$",
   "browserslist": [
     ">0.2%",
     "not dead",

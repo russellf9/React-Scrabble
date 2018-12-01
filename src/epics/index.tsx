@@ -1,11 +1,11 @@
 import { Action, MiddlewareAPI } from 'redux';
 import { ActionsObservable } from 'redux-observable';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/mergeMap';
-import { TypeKeys } from '../actions/actionTypes';
-import { ReadyState, RootState, SubmitWordForm } from '../interfaces';
 import { evaluateResponse, getResult } from '../dictionary';
+import { Observable } from 'rxjs';
+import { ReadyState, RootState, SubmitWordForm } from '../interfaces';
+import { TypeKeys } from '../actions/actionTypes';
+import 'rxjs/add/operator/filter';
+// import 'rxjs/add/operator/mergeMap';
 
 export const initEpic = (
     action: ActionsObservable<Action>,
