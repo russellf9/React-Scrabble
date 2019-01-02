@@ -42,14 +42,20 @@ export default class SearchForm extends React.Component<SearchFormProps, FormSta
     constructor(props: SearchFormProps) {
         super(props);
     }
+    updateSearch = (e: React.ChangeEvent) => {
+        e.preventDefault();
+        this.props.onChange(e);
+    }
 
     public render() {
         return (
             <Wrapper>
                 <SearchRow>
                     <Input
+                        key="searchInput"
+                        type="text"
                         value={this.props.search}
-                        onChange={e => this.props.onChange(e)}
+                        onChange={e => this.updateSearch(e)}
                     />
                     <Button
                         disabled={this.props.isLoading || !this.props.search.length || this.props.complete}
