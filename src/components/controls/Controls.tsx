@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button } from '../shared';
 
-interface ControlsProps  {
+export interface ControlsProps  {
     clearSearch: Function;
     isLoading: boolean;
 }
@@ -10,7 +10,7 @@ interface ScrabbleState {
     search: string;
 }
 
-export default class Controls extends React.Component<ControlsProps, ScrabbleState> {
+export class Controls extends React.Component<ControlsProps, ScrabbleState> {
     constructor(props: ControlsProps) {
         super(props);
     }

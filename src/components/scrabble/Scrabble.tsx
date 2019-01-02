@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import ScrabbleContent from '../content/ScrabbleContent';
+import { ScrabbleContent } from '../content/ScrabbleContent';
 import SearchForm from '../search/SearchForm';
 import Result from '../result/Result';
-import Controls from '../controls/Controls';
+import { Controls } from '../controls/Controls';
 import { ChangeEvent, SubmitProps } from '../../interfaces';
 import { mapDispatchToProps, mapStateToProps } from '../../container';
 import styled from 'styled-components';
 import { colors } from '../../themes';
 
-const UnconnectedScrabble = (props: SubmitProps): React.ReactElement<SubmitProps> => {
+export const UnconnectedScrabble = (props: SubmitProps): React.ReactElement<SubmitProps> => {
 
     const handleChange = (event: ChangeEvent): void => {
         props.onChange(event.target.value);

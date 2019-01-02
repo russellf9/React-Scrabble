@@ -19,7 +19,7 @@ export const Title = styled.h2`
     text-transform: uppercase;
 `;
 
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
     background: ${colors.background};
     font-family: 'Hind', sans-serif;
     padding: 4em;
