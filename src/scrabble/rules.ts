@@ -1,5 +1,5 @@
 export interface Tile {
-    letter: String;
+    letter: string;
     score: number;
     count: number;
 } 
