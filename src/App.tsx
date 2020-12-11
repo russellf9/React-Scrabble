@@ -1,6 +1,6 @@
-import * as React from 'react';
-import './App.css';
-import { Scrabble } from './components/scrabble/Scrabble';
+import * as React from "react";
+import "./App.css";
+import { Scrabble } from "./components/scrabble/Scrabble";
 
 export interface AppProps {
   complete: boolean;
@@ -19,7 +19,7 @@ export default class App extends React.Component<{}, {}> {
   public render() {
     return (
       <div className="App">
-        <Scrabble  />
+        <Scrabble />
       </div>
     );
   }
