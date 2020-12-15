@@ -38,51 +38,40 @@ const Loading = styled.p`
   text-transform: uppercase;
 `;
 
-export default class SearchForm extends React.Component<
-  SearchFormProps,
-  FormState
-> {
-  constructor(props: SearchFormProps) {
-    super(props);
-  }
-  updateSearch = (e: React.ChangeEvent) => {
+type Props = SearchFormProps & FormState;
+
+export const SearchForm: React.FC<Props> = ({
+  complete,
+  isLoading,
+  onChange,
+  requestSearch,
+  search,
+}): JSX.Element => {
+  const updateSearch = (e: React.ChangeEvent) => {
     e.preventDefault();
-    this.props.onChange(e);
+    onChange(e);
   };
+  const isDisabled = isLoading || !search.length || complete;
+  return (
+    <Wrapper>
+      <SearchRow>
+        <Input
+          key="searchInput"
+          type="text"
+          value={search}
+          onChange={(e) => updateSearch(e)}
+        />
+        <Button
+          disabled={isDisabled}
+          value="Search"
+          onClick={() => requestSearch(search)}
+        >
+          Search
+        </Button>
+      </SearchRow>
+      <SearchRow>{isLoading && <Loading>Loading...</Loading>}</SearchRow>
+    </Wrapper>
+  );
+};
 
-  public render() {
-    return (
-      <Wrapper>
-        <SearchRow>
-          <Input
-            key="searchInput"
-            type="text"
-            value={this.props.search}
-            onChange={(e) => this.updateSearch(e)}
-          />
-          <Button
-            disabled={
-              this.props.isLoading ||
-              !this.props.search.length ||
-              this.props.complete
-            }
-            value="Search"
-            onClick={(e) => this.props.requestSearch(this.props.search)}
-          >
-            Search
-          </Button>
-        </SearchRow>
-
-        <SearchRow>
-          {this.props.isLoading ? (
-            <div>
-              <Loading>loading...</Loading>
-            </div>
-          ) : (
-            undefined
-          )}
-        </SearchRow>
-      </Wrapper>
-    );
-  }
-}
+export default SearchForm;
