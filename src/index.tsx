@@ -7,7 +7,7 @@ import { TypeKeys } from "./actions/actionTypes";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
-import App from "./App";
+import { App } from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import "./index.css";
 

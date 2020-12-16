@@ -1,3 +1,4 @@
+/*TODO can this file be removes as i think this is just a legacy */
 .App {
   text-align: center;
 }
@@ -23,6 +24,10 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
