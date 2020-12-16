@@ -1,42 +1,43 @@
-import * as React from 'react';
-import { shallow } from 'enzyme';
-import { Controls, ControlsProps } from '../../../components/controls/Controls';
-import { Button } from '../../../components/shared';
+import * as React from "react";
+import { shallow } from "enzyme";
+import { Controls, ControlsProps } from "../../../components/controls/Controls";
+import { Button } from "../../../components/shared";
 
 const initialProps: ControlsProps = {
-    clearSearch: (): void => {
-       return;
-    },
-    isLoading: false,
+  clearSearch: (): void => {
+    return;
+  },
+  isLoading: false,
 };
 
-describe('Controls', () => {
+describe("Controls", () => {
+  it("renders without crashing", () => {
+    // given
+    // when
+    const wrapper = shallow(<Controls {...initialProps} />);
 
-    it('renders without crashing', () => {
-        // given
+    // then
+    expect(wrapper).toMatchSnapshot();
+  });
 
-        // when
-        const wrapper = shallow(<Controls {...initialProps}/>);
+  it("should have a Button", () => {
+    // given
+    // when
+    const wrapper = shallow(<Controls {...initialProps} />);
 
-        // then
-        expect(wrapper).toMatchSnapshot();
-    });
+    // then
+    expect(wrapper.contains(<Button />));
+  });
 
-    it('should have a Button', () => {
-        // given
-        // when
-        const wrapper = shallow(<Controls {...initialProps}/>);
+  it("should not be loading and the button should not be disabled", () => {
+    // given
+    const wrapper = shallow(<Controls {...initialProps} />);
 
-        // then 
-        expect(wrapper.contains(<Button/>));
-    });
+    // when
+    const button = wrapper.find(Button);
 
-    it('should not be loading', () => {
-        // given
-        // when
-        const wrapper = shallow(<Controls {...initialProps}/>);
-        const props = wrapper.instance().props as ControlsProps;
-        // then 
-        expect(props.isLoading).toBe(false);
-    });
+    // then
+    expect(button).toBeTruthy();
+    expect(button.props()["disabled"]).toBe(false);
+  });
 });

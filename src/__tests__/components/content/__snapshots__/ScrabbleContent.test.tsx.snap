@@ -3,11 +3,10 @@
 exports[`ScrabbleContent renders without crashing 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <ScrabbleContent
-    search=""
-  />,
+  Symbol(enzyme.__unrendered__): <ScrabbleContent />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -38,21 +37,21 @@ ShallowWrapper {
         "attrs": Array [],
         "componentStyle": ComponentStyle {
           "componentId": "sc-bdVaJa",
-          "isStatic": true,
+          "isStatic": false,
           "rules": Array [
             "
-    color: ",
+  color: ",
             "#2993C8",
             ";
-    font-family: ",
+  font-family: ",
             "hind",
             ";
-    font-size: 1.75em;
-    font-weight: ",
+  font-size: 1.75em;
+  font-weight: ",
             "600",
             ";
-    text-align: center;
-    text-transform: uppercase;
+  text-align: center;
+  text-transform: uppercase;
 ",
           ],
         },
@@ -71,14 +70,14 @@ ShallowWrapper {
       "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "sc-bwzfXH",
-        "isStatic": true,
+        "isStatic": false,
         "rules": Array [
           "
-    background: ",
+  background: ",
           "#f8f9fa",
           ";
-    font-family: 'Hind', sans-serif;
-    padding: 4em;
+  font-family: \\"Hind\\", sans-serif;
+  padding: 4em;
 ",
         ],
       },
@@ -117,21 +116,21 @@ ShallowWrapper {
           "attrs": Array [],
           "componentStyle": ComponentStyle {
             "componentId": "sc-bdVaJa",
-            "isStatic": true,
+            "isStatic": false,
             "rules": Array [
               "
-    color: ",
+  color: ",
               "#2993C8",
               ";
-    font-family: ",
+  font-family: ",
               "hind",
               ";
-    font-size: 1.75em;
-    font-weight: ",
+  font-size: 1.75em;
+  font-weight: ",
               "600",
               ";
-    text-align: center;
-    text-transform: uppercase;
+  text-align: center;
+  text-transform: uppercase;
 ",
             ],
           },
@@ -150,14 +149,14 @@ ShallowWrapper {
         "attrs": Array [],
         "componentStyle": ComponentStyle {
           "componentId": "sc-bwzfXH",
-          "isStatic": true,
+          "isStatic": false,
           "rules": Array [
             "
-    background: ",
+  background: ",
             "#f8f9fa",
             ";
-    font-family: 'Hind', sans-serif;
-    padding: 4em;
+  font-family: \\"Hind\\", sans-serif;
+  padding: 4em;
 ",
           ],
         },
@@ -176,11 +175,18 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
           },
-          "getDerivedStateFromProps": true,
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,
@@ -188,6 +194,8 @@ ShallowWrapper {
         },
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
