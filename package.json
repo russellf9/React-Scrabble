@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@types/styled-components": "^4.1.2",
-    "immutable": "^3.8.2",
-    "react": "^16.6.3",
+    "immutable": "4.0.0-rc.12",
+    "react": "^17.0.1",
     "react-dom": "^16.6.3",
     "react-redux": "^5.0.7",
     "react-scripts-ts": "^4.0.8",
@@ -55,7 +55,9 @@
       "<rootDir>/test-config/shim.js",
       "<rootDir>/test-config/setup.js"
     ],
-    "testMatch": ["**/__tests__/**.(ts|tsx|js)"],
+    "testMatch": [
+      "**/__tests__/**.(ts|tsx|js)"
+    ],
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/test-preprocessor.js"
     },
