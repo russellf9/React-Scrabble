@@ -9,6 +9,12 @@ import { mapDispatchToProps, mapStateToProps } from "../../container";
 import styled from "styled-components";
 import { colors } from "../../themes";
 
+const Wrapper = styled.section`
+  background: ${colors.background};
+  padding-bottom: 3em;
+  padding-top: 0.5em;
+`;
+
 export const UnconnectedScrabble = (
   props: SubmitProps
 ): React.ReactElement<SubmitProps> => {
@@ -23,12 +29,6 @@ export const UnconnectedScrabble = (
   const clearSearch = (): void => {
     props.onChange("");
   };
-
-  const Wrapper = styled.section`
-    background: ${colors.background};
-    padding-bottom: 3em;
-    padding-top: 0.5em;
-  `;
 
   return (
     <Wrapper>
