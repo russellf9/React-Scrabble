@@ -53,8 +53,10 @@ ShallowWrapper {
       "type": Object {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
-        "componentStyle": ComponentStyle {
-          "componentId": "sc-bdVaJa",
+        "componentStyle": e {
+          "baseHash": 1014106698,
+          "baseStyle": undefined,
+          "componentId": "sc-bdfBwQ",
           "isStatic": false,
           "rules": Array [
             "
@@ -78,11 +80,12 @@ ShallowWrapper {
     text-transform: uppercase;
 ",
           ],
+          "staticRulesId": "",
         },
-        "displayName": "styled.button",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "sc-bdVaJa",
+        "shouldForwardProp": undefined,
+        "styledComponentId": "sc-bdfBwQ",
         "target": "button",
         "toString": [Function],
         "warnTooManyClasses": [Function],
@@ -129,8 +132,10 @@ ShallowWrapper {
         "type": Object {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bdVaJa",
+          "componentStyle": e {
+            "baseHash": 1014106698,
+            "baseStyle": undefined,
+            "componentId": "sc-bdfBwQ",
             "isStatic": false,
             "rules": Array [
               "
@@ -154,11 +159,12 @@ ShallowWrapper {
     text-transform: uppercase;
 ",
             ],
+            "staticRulesId": "",
           },
-          "displayName": "styled.button",
           "foldedComponentIds": Array [],
           "render": [Function],
-          "styledComponentId": "sc-bdVaJa",
+          "shouldForwardProp": undefined,
+          "styledComponentId": "sc-bdfBwQ",
           "target": "button",
           "toString": [Function],
           "warnTooManyClasses": [Function],

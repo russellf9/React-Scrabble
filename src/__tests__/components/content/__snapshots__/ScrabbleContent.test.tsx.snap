@@ -35,8 +35,10 @@ ShallowWrapper {
       "type": Object {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
-        "componentStyle": ComponentStyle {
-          "componentId": "sc-bdVaJa",
+        "componentStyle": e {
+          "baseHash": 1014106698,
+          "baseStyle": undefined,
+          "componentId": "sc-bdfBwQ",
           "isStatic": false,
           "rules": Array [
             "
@@ -54,11 +56,12 @@ ShallowWrapper {
   text-transform: uppercase;
 ",
           ],
+          "staticRulesId": "",
         },
-        "displayName": "styled.h2",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "sc-bdVaJa",
+        "shouldForwardProp": undefined,
+        "styledComponentId": "sc-bdfBwQ",
         "target": "h2",
         "toString": [Function],
         "warnTooManyClasses": [Function],
@@ -68,8 +71,10 @@ ShallowWrapper {
     "type": Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
-      "componentStyle": ComponentStyle {
-        "componentId": "sc-bwzfXH",
+      "componentStyle": e {
+        "baseHash": 431907906,
+        "baseStyle": undefined,
+        "componentId": "sc-gsTCUz",
         "isStatic": false,
         "rules": Array [
           "
@@ -80,11 +85,12 @@ ShallowWrapper {
   padding: 4em;
 ",
         ],
+        "staticRulesId": "",
       },
-      "displayName": "styled.section",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "styledComponentId": "sc-bwzfXH",
+      "shouldForwardProp": undefined,
+      "styledComponentId": "sc-gsTCUz",
       "target": "section",
       "toString": [Function],
       "warnTooManyClasses": [Function],
@@ -114,8 +120,10 @@ ShallowWrapper {
         "type": Object {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bdVaJa",
+          "componentStyle": e {
+            "baseHash": 1014106698,
+            "baseStyle": undefined,
+            "componentId": "sc-bdfBwQ",
             "isStatic": false,
             "rules": Array [
               "
@@ -133,11 +141,12 @@ ShallowWrapper {
   text-transform: uppercase;
 ",
             ],
+            "staticRulesId": "",
           },
-          "displayName": "styled.h2",
           "foldedComponentIds": Array [],
           "render": [Function],
-          "styledComponentId": "sc-bdVaJa",
+          "shouldForwardProp": undefined,
+          "styledComponentId": "sc-bdfBwQ",
           "target": "h2",
           "toString": [Function],
           "warnTooManyClasses": [Function],
@@ -147,8 +156,10 @@ ShallowWrapper {
       "type": Object {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
-        "componentStyle": ComponentStyle {
-          "componentId": "sc-bwzfXH",
+        "componentStyle": e {
+          "baseHash": 431907906,
+          "baseStyle": undefined,
+          "componentId": "sc-gsTCUz",
           "isStatic": false,
           "rules": Array [
             "
@@ -159,11 +170,12 @@ ShallowWrapper {
   padding: 4em;
 ",
           ],
+          "staticRulesId": "",
         },
-        "displayName": "styled.section",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "sc-bwzfXH",
+        "shouldForwardProp": undefined,
+        "styledComponentId": "sc-gsTCUz",
         "target": "section",
         "toString": [Function],
         "warnTooManyClasses": [Function],

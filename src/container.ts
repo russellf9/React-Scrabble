@@ -1,5 +1,4 @@
-import { Action } from "redux";
-import { Dispatch } from "react-redux";
+import { Action, Dispatch } from "redux";
 import { TypeKeys } from "./actions/actionTypes";
 import {
   RootState,

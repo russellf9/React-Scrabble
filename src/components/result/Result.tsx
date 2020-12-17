@@ -6,11 +6,17 @@ interface ResultProps {
   complete: boolean;
   result: number;
   word: string;
+  color?: string;
   errorMessage: string;
 }
 
+// TODO resolve linting issue here (and work out if this is needed)
+interface TitleProps {
+  color: string;
+}
+
 const Title = styled.h2`
-  color: ${(props) => props.color};
+  color: ${(props: TitleProps) => props.color};
   font-family: ${fonts.hind};
   font-size: 1.25em;
   font-weight: ${fontWeights.semiBold};
