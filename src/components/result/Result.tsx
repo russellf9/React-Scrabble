@@ -10,13 +10,8 @@ interface ResultProps {
   errorMessage: string;
 }
 
-// TODO resolve linting issue here (and work out if this is needed)
-interface TitleProps {
-  color: string;
-}
-
 const Title = styled.h2`
-  color: ${(props: TitleProps) => props.color};
+  color: ${(props: ResultProps) => props.color};
   font-family: ${fonts.hind};
   font-size: 1.25em;
   font-weight: ${fontWeights.semiBold};
@@ -27,6 +22,7 @@ const Wrapper = styled.section`
   background: ${colors.background};
   padding: 1em;
 `;
+
 const resultString = (word: string, result: number) => {
   return `The word "${word}" is worth ${result} in Scrabble.`;
 };
