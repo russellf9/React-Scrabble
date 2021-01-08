@@ -10,6 +10,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  //border: 1px solid pink;
   min-height: 150px;
 `;
 
@@ -23,12 +24,12 @@ const SearchRow = styled.div`
 `;
 
 const Input = styled.input`
-    background: white;
-    border-radius: 4px;
-    border: 1px solid ${colors.lightGrey};
-    font-size: 14px;
-    margin: 0.5em 1em;
-    padding 0.5em 1em;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid ${colors.lightGrey};
+  font-size: 14px;
+  margin: 0.5em 1em;
+  padding 0.5em 1em;
 `;
 
 const Loading = styled.p`
@@ -40,7 +41,7 @@ const Loading = styled.p`
 
 type Props = SearchFormProps & FormState;
 
-export const SearchForm: React.FC<Props> = ({
+const SearchForm: React.FC<Props> = ({
   complete,
   isLoading,
   onChange,
@@ -51,7 +52,7 @@ export const SearchForm: React.FC<Props> = ({
     e.preventDefault();
     onChange(e);
   };
-  const isDisabled = isLoading || !search.length || complete;
+
   return (
     <Wrapper>
       <SearchRow>
@@ -62,14 +63,21 @@ export const SearchForm: React.FC<Props> = ({
           onChange={(e) => updateSearch(e)}
         />
         <Button
-          disabled={isDisabled}
+          disabled={isLoading || !search.length || complete}
           value="Search"
           onClick={() => requestSearch(search)}
         >
           Search
         </Button>
       </SearchRow>
-      <SearchRow>{isLoading && <Loading>Loading...</Loading>}</SearchRow>
+
+      <SearchRow>
+        {isLoading && (
+          <div>
+            <Loading>loading...</Loading>
+          </div>
+        )}
+      </SearchRow>
     </Wrapper>
   );
 };

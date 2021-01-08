@@ -46,7 +46,82 @@ It correctly bundles React in production mode and optimizes the build for the be
 * [ ] Hide keys?
 * [ ] Use a better back-end
 
+## Redo Dec 2020
 
+Looking at the old project working out the next steps:
+
+* [ ] Review design
+
+* [ ] Resolve TS Config issue (I kind of replaced the `tslint.json` with an empty json file was this necessary?)
+
+* [ ] Use Yarn rather than NPM were possible
+
+* [ ] Run through the application so I have a good idea how it works.
+
+* [X] Convert to FC where I can.
+
+* [X] Convert to FC where I can where props are being used how do I do that?
+
+    * [X] ScrabbleContent 
+
+* [ ] Update all node_modules and document the process
+
+* [ ] Where should I use React Hooks? (See `evaluateResultString` in `Result`)
+
+* [ ] Work out the best way to do the styling.
+
+* [ ] Are there ways to add my own React Snippets? (I'm using the CoC snippets)
+
+* [ ] Document handy snippets
+
+* [ ] `styled.section` in ScrabbleContent what is that?
+
+* [ ] Spend extra time using VIM commands each time I do something. 
+
+* [ ] Resolve functions like (make pure?) `onClick={e => this.props.requestSearch(this.props.search)}`
+
+* [ ] Is there a way of finding and resolving errors in style components definitions?
+
+* [ ] Use other styling than styled-components.
+
+ * [ ] Interesting - can use the menu to get the path: eg  `/Users/factornine/localhosts/www.factornine.co.uk/development/React-Scrabble/src/services/index.ts`, but can I use it for a GOTO or something else?
+
+* [ ] The requests are a bit rough so find out the simplest way to do it.
+
+* [ ] Keep the tests up to date
+
+* [ ] Add a complete test suite.
+
+* [ ] Why in `reducers/index.tsx` does the fn name highlight in red?
+
+* [X] Issue with the input - there is a delay of some sort so the UX is bad. (It looses focus on each additional text input)
+
+* [ ] Get all the React Chrome tools up and running so I can debug the app. 
+
+* [ ] Can I make it so the theme can be quickly updated?
+
+* [ ] Update node version? (I have `node -v v15.3.0`)
+
+* [ ] Update so styled-components do not give warning.
+
+* [ ] Update typescript dependency see: `2.9.2   2.9.2  4.1.3  devDependencies https://www.typescriptlang.org/`
+
+* [ ] Update Redux dependencies.
+
+* [ ] 
+
+* [ ] 
+
+### Upgrade errors and warnings
+
+I upgraded `styled-components` to 5.2.1 and am getting this warning:
+
+```
+styled-components.browser.esm.js:605 The component styled.section with the id of "sc-pFZIQ" has been created dynamically.
+You may see this warning because you've called styled inside another component.
+To resolve this only create new StyledComponents outside of any render method and function component.
+```
+. 
 ## Links
 
 * [React and Redux with TypeScript](https://levelup.gitconnected.com/react-and-redux-with-typescript-da0c37537a79)

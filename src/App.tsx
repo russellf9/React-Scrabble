@@ -2,7 +2,6 @@ import * as React from "react";
 import "./App.css";
 import { Scrabble } from "./components/scrabble/Scrabble";
 
-// TODO is this required?
 export interface AppProps {
   complete: boolean;
   errorMessage: string;

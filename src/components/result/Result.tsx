@@ -21,6 +21,8 @@ const Title = styled.h2`
 const Wrapper = styled.section`
   background: ${colors.background};
   padding: 1em;
+  min-height: 66px;
+  //border: 1px solid red;
 `;
 
 const resultString = (word: string, result: number) => {
