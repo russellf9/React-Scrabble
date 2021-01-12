@@ -1,6 +1,10 @@
 import * as React from "react";
-import "./App.css";
 import { Scrabble } from "./components/scrabble/Scrabble";
+import styled from "styled-components";
+
+const AppWrapper = styled.div`
+  text-align: center;
+`;
 
 export interface AppProps {
   complete: boolean;
@@ -12,7 +16,7 @@ export interface AppProps {
 }
 
 export const App: React.FC<{}> = (): JSX.Element => (
-  <div className="App">
+  <AppWrapper>
     <Scrabble />
-  </div>
+  </AppWrapper>
 );
