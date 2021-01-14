@@ -1,16 +1,19 @@
 import * as React from "react";
 import { Button } from "../shared";
-
+import styled from "../style/styled-components";
 export interface ControlsProps {
   clearSearch: Function;
   isLoading: boolean;
 }
 
+const Wrapper = styled.div`
+  margin-top: 20px;
+`;
 export const Controls: React.FC<ControlsProps> = ({
   isLoading,
   clearSearch,
 }): JSX.Element => (
-  <div>
+  <Wrapper>
     <Button
       disabled={isLoading}
       onClick={() => clearSearch()}
@@ -19,5 +22,5 @@ export const Controls: React.FC<ControlsProps> = ({
     >
       Clear
     </Button>
-  </div>
+  </Wrapper>
 );

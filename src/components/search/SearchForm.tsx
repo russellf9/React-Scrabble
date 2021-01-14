@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { SearchFormProps, FormState } from "../../interfaces";
-import { colors, fonts, fontWeights } from "../../themes";
+import { colors } from "../../themes";
 import { Button } from "../shared";
 
 const Wrapper = styled.section`
@@ -10,8 +10,6 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //border: 1px solid pink;
-  min-height: 150px;
 `;
 
 const SearchRow = styled.div`
@@ -30,13 +28,6 @@ const Input = styled.input`
   font-size: 14px;
   margin: 0.5em 1em;
   padding 0.5em 1em;
-`;
-
-const Loading = styled.p`
-  font-family: ${fonts.hind};
-  font-size: 18px;
-  font-weight: ${fontWeights.semiBold};
-  text-transform: uppercase;
 `;
 
 type Props = SearchFormProps & FormState;
@@ -69,14 +60,6 @@ const SearchForm: React.FC<Props> = ({
         >
           Search
         </Button>
-      </SearchRow>
-
-      <SearchRow>
-        {isLoading && (
-          <div>
-            <Loading>loading...</Loading>
-          </div>
-        )}
       </SearchRow>
     </Wrapper>
   );

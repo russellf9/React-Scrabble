@@ -4,11 +4,19 @@ import { colors, fonts, fontWeights } from "../../themes";
 
 interface ResultProps {
   complete: boolean;
+  isLoading: boolean;
   result: number;
   word: string;
   color?: string;
   errorMessage: string;
 }
+
+const Loading = styled.h2`
+  font-family: ${fonts.hind};
+  font-size: 1.25em;
+  font-weight: ${fontWeights.semiBold};
+  text-transform: uppercase;
+`;
 
 const Title = styled.h2`
   color: ${(props: ResultProps) => props.color};
@@ -19,10 +27,10 @@ const Title = styled.h2`
 `;
 
 const Wrapper = styled.section`
+  display: block;
   background: ${colors.background};
   padding: 1em;
-  min-height: 66px;
-  //border: 1px solid red;
+  height: 32px;
 `;
 
 const resultString = (word: string, result: number) => {
@@ -50,6 +58,7 @@ const getTitleColor = (result: number): string => {
 const Result: React.FC<ResultProps> = ({
   complete,
   errorMessage,
+  isLoading,
   result,
   word,
 }): JSX.Element => {
@@ -57,6 +66,7 @@ const Result: React.FC<ResultProps> = ({
   return (
     <Wrapper>
       <Title color={getTitleColor(result)}>{complete && resultString}</Title>
+      {isLoading && <Loading>loading...</Loading>}
     </Wrapper>
   );
 };
