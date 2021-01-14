@@ -12,16 +12,21 @@ export const Title = styled.h2`
   text-transform: uppercase;
 `;
 
+export const Instructions = styled.p`
+  //text-align: center;
+`;
+
 export const Wrapper = styled.section`
   background: ${colors.background};
   font-family: "Hind", sans-serif;
-  //border: 1px solid black;
-  padding: 4em;
+  //border: 1px solid pink;
+  //padding: 0.5em;
 `;
 
 const ScrabbleContent: React.FC<{}> = (): JSX.Element => (
   <Wrapper>
     <Title>Scrabble</Title>
+    <Instructions>Enter a word to find out it's scrabble score.</Instructions>
   </Wrapper>
 );
 
