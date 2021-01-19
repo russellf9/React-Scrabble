@@ -30,7 +30,7 @@ export const UnconnectedScrabble = (
   };
 
   const clearSearch = (): void => {
-    props.onChange("");
+    props.onReset();
   };
 
   return (

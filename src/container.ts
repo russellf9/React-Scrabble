@@ -7,6 +7,7 @@ import {
   OnChangeAction,
   SubmitProps,
 } from "./interfaces";
+import { OnReset } from "./actionCreators";
 const { freeze } = Object;
 
 export const mapStateToProps = (state: RootState): SubmitProps => {
@@ -20,5 +21,6 @@ export const mapDispatchToProps = (
     onChange: (payload: string) =>
       dispatch<OnChangeAction>({ type: TypeKeys.ON_CHANGE, payload }),
     submit: () => dispatch<Submit>({ type: TypeKeys.ON_SUBMIT }),
+    onReset: () => dispatch<OnReset>({ type: TypeKeys.RESET_FORM }),
   });
 };
