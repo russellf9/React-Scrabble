@@ -1,10 +1,11 @@
-import { TypeKeys } from '../actions/actionTypes';
+import { TypeKeys } from "../actions/actionTypes";
 
 export interface Word {
-    word: string;
+  word: string;
 }
 
 export interface OnChange {
-    type: TypeKeys.ON_CHANGE;
-    word: Word;
+  type: TypeKeys.ON_CHANGE;
+  word: Word;
 }
+
