@@ -27,6 +27,11 @@ See the section about [running tests](#running-tests) for more information.
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+-----
+
+![scrabble-2021-01-21](https://user-images.githubusercontent.com/4911915/105375033-3f7f6100-5c00-11eb-9d38-621af67f3e12.png)
+
+----
 
 ## Features to add
 
