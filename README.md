@@ -29,6 +29,14 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 -----
 
+## Aim of the project
+
+I'm attempting to update my previous Scrabble app made in AngularJS using React with typescript.
+
+I've completed an initial stage where the user can simply enter a word to find out it's score in Scrabble.
+
+See screenshot below:
+
 ![scrabble-2021-01-21](https://user-images.githubusercontent.com/4911915/105375033-3f7f6100-5c00-11eb-9d38-621af67f3e12.png)
 
 ----
