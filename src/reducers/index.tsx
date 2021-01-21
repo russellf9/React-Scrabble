@@ -11,10 +11,11 @@ const initialState = freeze({
   lastWord: "",
   placeholder: "",
   result: 0,
-  search: "word",
+  resultIsVisible: false,
+  search: "",
 });
 
-export default function(
+export default function (
   state: AppProps = initialState,
   action: DispatchActions
 ) {
@@ -32,6 +33,7 @@ export default function(
       nextState = {
         ...state,
         complete: false,
+        resultIsVisible: false,
         search: "",
       };
       break;
@@ -49,6 +51,7 @@ export default function(
         ...state,
         complete: false,
         isLoading: true,
+        resultIsVisible: true,
       };
       break;
 
@@ -61,6 +64,7 @@ export default function(
         isLoading: false,
         lastWord: action.payload.word,
         result: action.payload.result,
+        resultIsVisible: true,
       };
       break;
 

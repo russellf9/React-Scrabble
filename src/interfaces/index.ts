@@ -7,10 +7,11 @@ export interface RootState {
   isLoading: true;
   lastWord: "";
   onChange: () => OnChange;
+  onReset: () => OnReset;
   result: 0;
+  resultIsVisible: false;
   search: "";
   submit: () => Submit;
-  onReset: () => OnReset;
 }
 
 export interface ReadyState {
@@ -24,10 +25,11 @@ export interface SubmitProps {
   isLoading: boolean;
   lastWord: string;
   onChange: (x: string) => void;
+  onReset: Function;
   result: number;
+  resultIsVisible: boolean;
   search: string;
   submit: Function;
-  onReset: Function;
 }
 export interface Submit {
   type: TypeKeys.ON_SUBMIT;

@@ -18,6 +18,13 @@ const Wrapper = styled.section`
   padding-top: 0.5em;
 `;
 
+const ResultsWrapper = styled.section`
+  display: block;
+  background: ${colors.background};
+  padding: 1em;
+  height: 32px;
+`;
+
 export const UnconnectedScrabble = (
   props: SubmitProps
 ): React.ReactElement<SubmitProps> => {
@@ -44,13 +51,17 @@ export const UnconnectedScrabble = (
           requestSearch={requestSearch}
           isLoading={props.isLoading}
         />
-        <Result
-          complete={props.complete}
-          word={props.lastWord}
-          result={props.result}
-          isLoading={props.isLoading}
-          errorMessage={props.errorMessage}
-        />
+        <ResultsWrapper>
+          {props.resultIsVisible && (
+            <Result
+              complete={props.complete}
+              word={props.lastWord}
+              result={props.result}
+              isLoading={props.isLoading}
+              errorMessage={props.errorMessage}
+            />
+          )}
+        </ResultsWrapper>
         <Controls clearSearch={clearSearch} isLoading={props.isLoading} />
       </Card>
     </Wrapper>

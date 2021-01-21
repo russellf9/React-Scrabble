@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { colors, fonts, fontWeights } from "../../themes";
 
+// TODO should this be elsewhere?
 interface ResultProps {
   complete: boolean;
   isLoading: boolean;
@@ -24,13 +25,6 @@ const Title = styled.h2`
   font-size: 1.25em;
   font-weight: ${fontWeights.semiBold};
   text-align: center;
-`;
-
-const Wrapper = styled.section`
-  display: block;
-  background: ${colors.background};
-  padding: 1em;
-  height: 32px;
 `;
 
 const resultString = (word: string, result: number) => {
@@ -63,11 +57,12 @@ const Result: React.FC<ResultProps> = ({
   word,
 }): JSX.Element => {
   const resultString = evaluateResultString(result, word, errorMessage);
+  const titleColor = getTitleColor(result);
   return (
-    <Wrapper>
-      <Title color={getTitleColor(result)}>{complete && resultString}</Title>
+    <>
+      <Title color={titleColor}>{complete && resultString}</Title>
       {isLoading && <Loading>loading...</Loading>}
-    </Wrapper>
+    </>
   );
 };
 
