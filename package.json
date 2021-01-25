@@ -16,7 +16,10 @@
     "styled-components": "^5.2.1",
     "styled-components-ts": "^0.0.15"
   },
+  "homepage": "https://russellf9.github.io/React-Scrabble/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "jest --watchAll",
