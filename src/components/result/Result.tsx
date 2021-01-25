@@ -27,7 +27,7 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-const resultString = (word: string, result: number) => {
+const wordResult = (word: string, result: number) => {
   return `The word "${word}" is worth ${result} in Scrabble.`;
 };
 
@@ -42,7 +42,7 @@ const evaluateResultString = (
 ) => {
   return result < 1
     ? errorString(word, errorMessage)
-    : resultString(word, result);
+    : wordResult(word, result);
 };
 
 const getTitleColor = (result: number): string => {
