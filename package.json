@@ -1,6 +1,6 @@
 {
   "name": "f9-react-scrabble",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "dependencies": {
     "@types/styled-components": "^5.1.5",
