@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/React-Scrabble/static/js/runtime~main.3df78b50.js"
   },
   {
-    "revision": "66b9222ad0369373a1a6ee77f8bc7e33",
+    "revision": "eba150cf5367f7a6f06d0e7b518a180e",
     "url": "/React-Scrabble/index.html"
   }
 ];
