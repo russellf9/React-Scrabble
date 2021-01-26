@@ -15,7 +15,7 @@ importScripts("/React-Scrabble/workbox-v3.6.3/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/React-Scrabble/workbox-v3.6.3"});
 
 importScripts(
-  "/React-Scrabble/precache-manifest.d13398204f0a2cebec53634184025b98.js"
+  "/React-Scrabble/precache-manifest.39605012574fc23cb166228cf6f5e248.js"
 );
 
 workbox.clientsClaim();
