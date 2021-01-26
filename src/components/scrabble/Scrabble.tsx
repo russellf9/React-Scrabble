@@ -11,11 +11,11 @@ import styled from "styled-components";
 import { colors } from "../../themes";
 
 const Wrapper = styled.section`
+  align-items: center;
+  background: ${colors.background};
   display: flex;
   justify-content: center;
-  background: ${colors.background};
-  padding-bottom: 3em;
-  padding-top: 0.5em;
+  min-height: 80vh;
 `;
 
 const ResultsWrapper = styled.section`

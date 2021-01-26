@@ -19,7 +19,7 @@ export const Title = styled.h2`
 const ScrabbleContent: React.FC<{}> = (): JSX.Element => (
   <Wrapper>
     <Title>Scrabble</Title>
-    <p>Enter a word to find out it's scrabble score.</p>
+    <p>Enter a word to find out it's Scrabble score.</p>
   </Wrapper>
 );
 
